@@ -184,10 +184,6 @@ A step that lowers the cost decreases $\lambda$ (toward Gauss–Newton, faster c
 
 **Multi-start seeding:** numerical IK is prone to local minima and singularities, so LM is run from 9 different seeds (current angles, Home, Zero, and 6 random seeds within the joint limits). The converged solution **closest to the current configuration** is chosen for smoother motion; if no seed converges, the lowest-error solution is used as a fallback.
 
-<p align="center">
-  <img src="docs/ik-pipeline.svg" width="88%" alt="IK pipeline"/>
-</p>
-
 ### Real error verification
 
 After the robot reaches the target, the code does **not** trust the solver result blindly. It waits a few physics steps for the joints to settle, then reads the actual end-effector position and orientation back from the `ArticulationBody` (already driven by the PD simulation) and compares them to the target. The panel shows the real measured error in mm/°, so a solver answer that the physics never actually reaches is exposed immediately.
