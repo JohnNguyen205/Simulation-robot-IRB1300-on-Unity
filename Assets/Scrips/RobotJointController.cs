@@ -51,6 +51,16 @@ public class RobotJointController : MonoBehaviour
 
     void Update()
     {
+        // F9: chup man hinh luu vao thu muc docs/ (dung lam anh minh hoa README)
+        if (Input.GetKeyDown(KeyCode.F9))
+        {
+            string dir = System.IO.Path.Combine(Application.dataPath, "../docs");
+            System.IO.Directory.CreateDirectory(dir);
+            string file = System.IO.Path.Combine(dir, $"sim_{Time.frameCount}.png");
+            ScreenCapture.CaptureScreenshot(file, 2); // 2x supersample cho net
+            Debug.Log("[Screenshot] Da luu: " + System.IO.Path.GetFullPath(file));
+        }
+
         if (joints[5] != null)
         {
             eeMarker.transform.position = joints[5].transform.position;
