@@ -43,7 +43,27 @@ This project simulates the **IRB 1300-11/0.9** variant (11 kg payload, 0.9 m rea
 | Base footprint | 220 × 220 mm |
 | Controller | ABB OmniCore |
 
-### Axis working range and speed (data sheet, IRB 1300-11/0.9)
+---
+
+## Robot dimensions
+
+Main dimensions of the IRB 1300-11/0.9, from the ABB product manual (all values in mm):
+
+<p align="center">
+  <img src="docs/robot-dimensions.png" width="85%" alt="IRB 1300-11/0.9 dimensions"/>
+</p>
+
+| Pos | Description |
+|:---:|---|
+| A | Turning radius: R85.5 |
+| B | Turning radius: R207 |
+| C | 98.5 mm (standard) / 100.5 mm (Foundry Plus) |
+
+---
+
+## Joint rotation limits
+
+Working range and maximum speed of each axis (data sheet, IRB 1300-11/0.9):
 
 | Axis | Motion | Working range | Max speed |
 |:---:|---|:---:|:---:|
@@ -54,7 +74,13 @@ This project simulates the **IRB 1300-11/0.9** variant (11 kg payload, 0.9 m rea
 | 5 | bend | −130° … +130° | 415 °/s |
 | 6 | turn | −400° … +400° | 720 °/s |
 
-### Joint limits used in the simulation
+Top view of the working range — axis 1 sweeps ±180°, with a maximum reach radius of R901.9 for the 11/0.9 variant (ABB product manual):
+
+<p align="center">
+  <img src="docs/axis-topview.png" width="60%" alt="IRB 1300 top view working range"/>
+</p>
+
+### Limits used in the simulation
 
 The limits actually enforced at runtime live in `RobotConfig.cs`:
 
